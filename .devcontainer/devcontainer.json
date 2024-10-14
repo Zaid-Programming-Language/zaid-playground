@@ -25,5 +25,63 @@
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root",
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "bin/setup --skip-server"
+  "postCreateCommand": "bin/setup --skip-server",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench": {
+          "iconTheme": "vscode-icons"
+        },
+        "editor": {
+          "formatOnSave": true
+        },
+        "[ruby]": {
+          "editor": {
+            "defaultFormatter": "Shopify.ruby-lsp",
+            "formatOnSave": true,
+            "tabSize": 2,
+            "insertSpaces": true,
+            "semanticHighlighting.enabled": true,
+            "formatOnType": true
+          }
+        },
+        "rubyLsp": {
+          "rubyVersionManager": "rbenv",
+          "formatter": "rubocop"
+        },
+        "sqltools.connections": [
+          {
+            "name": "Rails Development Database",
+            "driver": "PostgreSQL",
+            "previewLimit": 50,
+            "server": "db",
+            "port": 5432,
+            // update this to match config/database.yml
+            "database": "zaid_playground_development",
+            "username": "postgres",
+            "password": "postgres"
+          },
+          {
+            "name": "Rails Test Database",
+            "driver": "PostgreSQL",
+            "previewLimit": 50,
+            "server": "db",
+            "port": 5432,
+            // update this to match config/database.yml
+            "database": "zaid_playground_test",
+            "username": "postgres",
+            "password": "postgres"
+          }
+        ]
+      },
+      "extensions": [
+        "eamodio.gitlens",
+        "marcoroth.stimulus-lsp",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "vscode-icons-team.vscode-icons",
+        "waderyan.gitblame"
+      ]
+    }
+  }
 }
