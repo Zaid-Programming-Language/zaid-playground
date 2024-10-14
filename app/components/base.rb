@@ -9,6 +9,7 @@ class Components::Base < Phlex::HTML
   include Phlex::Rails::Helpers::JavascriptIncludeTag
   include Phlex::Rails::Helpers::Routes
   include Phlex::Rails::Helpers::StylesheetLinkTag
+  include Phlex::Rails::Helpers::T
 
   if Rails.env.development?
     def before_template
