@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/Zaid-Programming-Language/zaid-lang.git
+  revision: aea0d4f8948f7e84059f64b7a43199140eabd4e5
+  specs:
+    zaid (0.0.1)
+
+GIT
   remote: https://github.com/phlex-ruby/phlex-rails.git
   revision: 7dee942f48240e4788ead5301fae713f99cb102b
   specs:
@@ -393,6 +399,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  zaid!
 
 BUNDLED WITH
    2.5.21
