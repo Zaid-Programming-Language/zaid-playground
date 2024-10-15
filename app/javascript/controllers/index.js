@@ -9,3 +9,6 @@ application.register("codemirror", CodemirrorController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import RunZaidController from "./run_zaid_controller"
+application.register("run-zaid", RunZaidController)
