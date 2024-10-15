@@ -8,7 +8,7 @@ class Components::Layout < Components::Base
   def view_template
     doctype
 
-    html(class: "light") do
+    html(dir: "rtl", class: "light") do
       head do
         title { @title }
 
