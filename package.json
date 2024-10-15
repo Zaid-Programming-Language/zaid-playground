@@ -14,6 +14,7 @@
     "@codemirror/language": "^6.10.3",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.10",
+    "@ruby/wasm-wasi": "^2.6.2",
     "autoprefixer": "^10.4.20",
     "codemirror": "^6.0.1",
     "postcss": "^8.4.47",
