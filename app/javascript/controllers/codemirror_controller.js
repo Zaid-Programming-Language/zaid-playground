@@ -31,6 +31,9 @@ export default class extends Controller {
             }
           }
         ]),
+        EditorView.updateListener.of((view) => {
+          if (view.docChanged) { this.#sync() }
+        }),
         clouds,
       ],
       parent: this.editorTarget,
@@ -39,5 +42,9 @@ export default class extends Controller {
 
   disconnect() {
     this.editor.destroy()
+  }
+
+  #sync() {
+    this.inputTarget.value = this.editor.state.doc.toString()
   }
 }

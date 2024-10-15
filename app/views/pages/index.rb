@@ -9,6 +9,7 @@ class Views::Pages::Index < Views::Base
             class: "[&_*]:font-cascadia-mono w-full [&_.cm-editor]:h-[50vh] sm:[&_.cm-editor]:h-screen",
             data: { codemirror_target: "editor" }
           )
+          input(type: "hidden", data: { codemirror_target: "input", run_zaid_target: "input" })
         end
 
         div(class: "flex flex-1")
