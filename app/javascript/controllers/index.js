@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import CodemirrorController from "./codemirror_controller"
+application.register("codemirror", CodemirrorController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
