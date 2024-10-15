@@ -2,6 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 import { basicSetup, EditorView } from "codemirror"
 import { keymap } from "@codemirror/view"
+import { StreamLanguage } from "@codemirror/language"
+import { indentWithTab } from "@codemirror/commands"
+import { clouds } from "thememirror"
+
+import { zaid } from "../zaid"
 
 // Connects to data-controller="codemirror"
 export default class extends Controller {
@@ -15,7 +20,9 @@ export default class extends Controller {
       doc: this.docValue,
       extensions: [
         basicSetup,
+        StreamLanguage.define(zaid),
         keymap.of([
+          indentWithTab,
           {
             key: "Shift-ـ",
             run: (view) => {
@@ -23,9 +30,10 @@ export default class extends Controller {
               return true
             }
           }
-        ])
+        ]),
+        clouds,
       ],
-      parent: this.editorTarget
+      parent: this.editorTarget,
     })
   }
 
