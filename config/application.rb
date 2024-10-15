@@ -25,5 +25,7 @@ module ZaidPlayground
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.i18n.default_locale = :ar
+
+    Rails.application.config.assets.paths << Rails.root.join('app/assets/fonts')
   end
 end
