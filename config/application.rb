@@ -26,6 +26,6 @@ module ZaidPlayground
 
     config.i18n.default_locale = :ar
 
-    Rails.application.config.assets.paths << Rails.root.join('app/assets/fonts')
+    Rails.application.config.assets.paths << Rails.root.join("app/assets/fonts")
   end
 end
