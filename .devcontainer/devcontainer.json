@@ -10,7 +10,8 @@
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/rails/devcontainer/features/activestorage": {},
     "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/rails/devcontainer/features/sqlite3": {}
+    "ghcr.io/rails/devcontainer/features/sqlite3": {},
+    "ghcr.io/devcontainers/features/docker-in-docker": {}
   },
   "containerEnv": {
     "CAPYBARA_SERVER_PORT": "45678",
