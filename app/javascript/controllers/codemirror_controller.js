@@ -4,7 +4,7 @@ import { basicSetup, EditorView } from "codemirror"
 import { keymap } from "@codemirror/view"
 import { StreamLanguage } from "@codemirror/language"
 import { indentWithTab } from "@codemirror/commands"
-import { clouds } from "thememirror"
+import { ayuLight } from "thememirror"
 
 import { zaid } from "../zaid"
 
@@ -34,10 +34,12 @@ export default class extends Controller {
         EditorView.updateListener.of((view) => {
           if (view.docChanged) { this.#sync() }
         }),
-        clouds,
+        ayuLight,
       ],
       parent: this.editorTarget,
     })
+
+    requestAnimationFrame(() => { this.editor.focus() })
   }
 
   disconnect() {
