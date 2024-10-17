@@ -7,7 +7,7 @@ import ruby from "./zaid.wasm"
 
 // Connects to data-controller="run-zaid"
 export default class extends Controller {
-  static targets = ["input", "output"]
+  static targets = ["input", "output", "run"]
 
   async connect() {
     try {
@@ -21,7 +21,7 @@ export default class extends Controller {
 
   async run() {
     try {
-      this.outputTarget.innerHTML = "جارٍ التنفيذ..."
+      this.#preRun()
 
       await new Promise(resolve => setTimeout(resolve, 100));
 
@@ -34,6 +34,8 @@ export default class extends Controller {
       this.vm.eval(code)
       const output = this.vm.$output.flush()
       this.outputTarget.innerHTML = this.#formatOutput(output)
+
+      this.#postRun()
     } catch (error) {
       this.outputTarget.innerHTML = `خطأ: ${error.message}`
     }
@@ -67,6 +69,15 @@ export default class extends Controller {
     this.vm.initialize()
 
     this.vm.$output = this.output
+  }
+
+  #preRun() {
+    this.runTargets.forEach(target => { target.disabled = true })
+    this.outputTarget.innerHTML = "جارٍ التنفيذ..."
+  }
+
+  #postRun() {
+    this.runTargets.forEach(target => { target.disabled = false })
   }
 
   #formatOutput(output) {

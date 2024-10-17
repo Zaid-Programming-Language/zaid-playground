@@ -36,13 +36,13 @@ class Views::Pages::Index < Views::Base
 
         div(class: "flex flex-col h-[50vh] w-full sm:h-screen sm:w-1/2 p-4 max-sm:pt-2 sm:ps-2") do
           div(class: "flex items-center mb-4") do
-            RBUI::Button(size: :xl, class: "hidden sm:flex gap-2 pe-5", data: { action: "click->run-zaid#run" }) do
+            RBUI::Button(size: :xl, class: "hidden sm:flex gap-2 pe-5", data: { action: "click->run-zaid#run", run_zaid_target: "run" }) do
               plain t(".run")
 
               Hero::Play(variant: :outline, class: "size-4 scale-x-[-1]")
             end
 
-            RBUI::Button(class: "flex sm:hidden gap-2 pe-3", data: { action: "click->run-zaid#run" }) do
+            RBUI::Button(class: "flex sm:hidden gap-2 pe-3", data: { action: "click->run-zaid#run", run_zaid_target: "run" }) do
               plain t(".run")
 
               Hero::Play(variant: :outline, class: "size-4 scale-x-[-1]")
