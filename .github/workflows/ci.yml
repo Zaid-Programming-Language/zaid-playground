@@ -59,6 +59,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Download Zaid WASM module
+        run: wget -O app/javascript/controllers/zaid.wasm https://files.zaid-lang.org/zaid.wasm
+
       - name: Run tests
         env:
           RAILS_ENV: test
