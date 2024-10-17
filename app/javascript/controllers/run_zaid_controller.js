@@ -21,6 +21,10 @@ export default class extends Controller {
 
   async run() {
     try {
+      this.outputTarget.innerHTML = "جارٍ التنفيذ..."
+
+      await new Promise(resolve => setTimeout(resolve, 100));
+
       const code = `
       require 'zaid'
 
