@@ -1,2 +1,7 @@
 ar:
-  zaid_playground: مساحة تجربة لغة زيد!
+  zaid_playground: المساحة التجريبية للغة زيد
+  views:
+    pages:
+      index:
+        run: تشغيل
+        output_will_appear_here: النتائج ستظهر هنا!
