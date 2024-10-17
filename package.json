@@ -18,7 +18,9 @@
     "autoprefixer": "^10.4.20",
     "codemirror": "^6.0.1",
     "postcss": "^8.4.47",
+    "rbui-js": "https://github.com/rbui-labs/rbui",
     "tailwindcss": "^3.4.13",
+    "tailwindcss-animate": "^1.0.7",
     "thememirror": "^2.0.1"
   }
 }
