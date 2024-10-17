@@ -11,4 +11,9 @@ const context = await esbuild.context({
   plugins: [wasmPlugin],
 })
 
-await context.watch()
+if (process.argv.includes('--watch') && process.env.NODE_ENV !== 'production') {
+  await context.watch()
+} else {
+  await context.rebuild()
+  process.exit(0)
+}
