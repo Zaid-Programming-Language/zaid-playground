@@ -1,112 +1,106 @@
-# Name of your application. Used to uniquely configure containers.
 service: zaid-playground
 
-# Name of the container image.
-image: your-user/zaid-playground
+image: aliosm/zaid-playground
 
-# Deploy to these servers.
-servers:
-  web:
-    - 192.168.0.1
-  # job:
-  #   hosts:
-  #     - 192.168.0.1
-  #   cmd: bin/jobs
-
-# Enable SSL auto certification via Let's Encrypt (and allow for multiple apps on one server).
-# Set ssl: false if using something like Cloudflare to terminate SSL (but keep host!).
-proxy:
-  ssl: true
-  host: app.example.com
-
-# Credentials for your image host.
 registry:
-  # Specify the registry server, if you're not using Docker Hub
-  # server: registry.digitalocean.com / ghcr.io / ...
-  username: your-user
+  username: aliosm
 
-  # Always use an access token rather than real password when possible.
   password:
     - KAMAL_REGISTRY_PASSWORD
 
-# Inject ENV variables into containers (secrets come from .kamal/secrets).
+servers:
+  web:
+    hosts:
+      - 54.247.196.28
+    options:
+      network: "kamal_network"
+    labels:
+      traefik.http.routers.baheth.entrypoints: websecure
+      traefik.http.routers.baheth.rule: Host(`playground.zaid-lang.org`)
+      traefik.http.routers.baheth.tls: true
+      traefik.http.routers.baheth.tls.certresolver: letsencrypt
+
+volumes:
+  - zaid-playground-storage:/rails/storage
+
+traefik:
+  options:
+    network: "kamal_network"
+    publish:
+      - "443:443"
+    volume:
+      - "/letsencrypt/acme.json:/letsencrypt/acme.json"
+  args:
+    entryPoints.web.address: ":80"
+    entryPoints.websecure.address: ":443"
+    entryPoints.web.http.redirections.entryPoint.to: websecure
+    entryPoints.web.http.redirections.entryPoint.scheme: https
+    entryPoints.web.http.redirections.entrypoint.permanent: true
+    certificatesResolvers.letsencrypt.acme.email: "aliosm1997@gmail.com"
+    certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
+    certificatesResolvers.letsencrypt.acme.httpchallenge: true
+    certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web
+
+# Remember to run `kamal env push` after making changes!
 env:
   secret:
     - RAILS_MASTER_KEY
-  clear:
-    # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
-    # When you start using multiple servers, you should split out job processing to a dedicated machine.
-    SOLID_QUEUE_IN_PUMA: true
 
-    # Set number of processes dedicated to Solid Queue (default: 1)
-    # JOB_CONCURRENCY: 3
+healthcheck:
+  log_lines: 10_000
+  max_attempts: 25
 
-    # Set number of cores available to the application on each server (default: 1).
-    # WEB_CONCURRENCY: 2
-
-    # Match this to any external database server to configure Active Record correctly
-    # DB_HOST: 192.168.0.2
-
-    # Log everything from Rails
-    # RAILS_LOG_LEVEL: debug
-
-# Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
-# "bin/kamal logs -r job" will tail logs from the first server in the job section.
-aliases:
-  console: app exec --interactive --reuse "bin/rails console"
-  shell: app exec --interactive --reuse "bash"
-  logs: app logs -f
-  dbc: app exec --interactive --reuse "bin/rails dbconsole"
-
-
-# Use a persistent storage volume for sqlite database files and local Active Storage files.
-# Recommended to change this to a mounted volume path that is backed up off server.
-volumes:
-  - "zaid-playground-storage:/rails/storage"
-
-
-# Bridge fingerprinted assets, like JS and CSS, between versions to avoid
-# hitting 404 on in-flight requests. Combines all files from new and old
-# version inside the asset_path.
 asset_path: /rails/public/assets
 
-# Configure the image builder.
+ssh:
+  user: ubuntu
+
 builder:
-  arch: amd64
+  remote:
+    arch: amd64
+    host: ssh://ubuntu@54.247.196.28
 
-  # # Build image via remote server (useful for faster amd64 builds on arm64 computers)
-  # remote: ssh://docker@docker-builder-server
-  #
-  # # Pass arguments and secrets to the Docker build process
-  # args:
-  #   RUBY_VERSION: 3.3.5
-  # secrets:
-  #   - GITHUB_TOKEN
-  #   - RAILS_MASTER_KEY
+# Kamal v2 settings.
 
-# Use a different ssh user than root
+# service: zaid-playground
+
+# image: aliosm/zaid-playground
+
+# servers:
+#   web:
+#     - 54.247.196.28
+
+# proxy:
+#   ssl: true
+#   host: playground.zaid-lang.org
+
+# registry:
+#   username: aliosm
+
+#   password:
+#     - KAMAL_REGISTRY_PASSWORD
+
+# env:
+#   secret:
+#     - RAILS_MASTER_KEY
+#   clear:
+#     SOLID_QUEUE_IN_PUMA: true
+#     WEB_CONCURRENCY: 2
+
+# aliases:
+#   console: app exec --interactive --reuse "bin/rails console"
+#   shell: app exec --interactive --reuse "bash"
+#   logs: app logs -f
+#   dbc: app exec --interactive --reuse "bin/rails dbconsole"
+
+# volumes:
+#   - "zaid-playground-storage:/rails/storage"
+
+# asset_path: /rails/public/assets
+
+# builder:
+#   arch: amd64
+#   remote: ssh://ubuntu@54.247.196.28
+
 # ssh:
-#   user: app
-
-# Use accessory services (secrets come from .kamal/secrets).
-# accessories:
-#   db:
-#     image: mysql:8.0
-#     host: 192.168.0.2
-#     port: 3306
-#     env:
-#       clear:
-#         MYSQL_ROOT_HOST: '%'
-#       secret:
-#         - MYSQL_ROOT_PASSWORD
-#     files:
-#       - config/mysql/production.cnf:/etc/mysql/my.cnf
-#       - db/production.sql:/docker-entrypoint-initdb.d/setup.sql
-#     directories:
-#       - data:/var/lib/mysql
-#   redis:
-#     image: redis:7.0
-#     host: 192.168.0.2
-#     port: 6379
-#     directories:
-#       - data:/data
+#   user: ubuntu
