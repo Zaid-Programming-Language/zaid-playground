@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "phlex-rails", github: "phlex-ruby/phlex-rails"
+gem "phlex-icons", github: "AliOsm/phlex-icons"
 gem "rbui", github: "AliOsm/rbui"
 gem "zaid", github: "Zaid-Programming-Language/zaid-lang"
 

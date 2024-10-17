@@ -10,6 +10,7 @@ class Components::Base < Phlex::HTML
   include Phlex::Rails::Helpers::Routes
   include Phlex::Rails::Helpers::StylesheetLinkTag
   include Phlex::Rails::Helpers::T
+  include Phlex::Icons
 
   if Rails.env.development?
     def before_template

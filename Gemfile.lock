@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/AliOsm/phlex-icons.git
+  revision: 32e1a8a8fd75c284f0337ea7d9ff59c0da2b221f
+  specs:
+    phlex-icons (1.1.0)
+      phlex (>= 1.11)
+
+GIT
   remote: https://github.com/AliOsm/rbui.git
   revision: 20e3394336fbb8e0b1c151f3cda3e03f2580b1da
   specs:
@@ -397,6 +404,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kamal (>= 2.0.0.rc2)
+  phlex-icons!
   phlex-rails!
   propshaft
   puma (>= 5.0)
