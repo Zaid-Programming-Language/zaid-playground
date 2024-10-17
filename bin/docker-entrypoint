@@ -8,8 +8,6 @@ fi
 
 # If running the rails server then create or migrate existing database
 if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
-  wget -O app/javascript/controllers/zaid.wasm https://files.zaid-lang.org/zaid.wasm
-
   ./bin/rails db:prepare
 fi
 
