@@ -15,10 +15,10 @@ servers:
     options:
       network: "kamal_network"
     labels:
-      traefik.http.routers.baheth.entrypoints: websecure
-      traefik.http.routers.baheth.rule: Host(`playground.zaid-lang.org`)
-      traefik.http.routers.baheth.tls: true
-      traefik.http.routers.baheth.tls.certresolver: letsencrypt
+      traefik.http.routers.zaid-playground.entrypoints: websecure
+      traefik.http.routers.zaid-playground.rule: Host(`playground.zaid-lang.org`)
+      traefik.http.routers.zaid-playground.tls: true
+      traefik.http.routers.zaid-playground.tls.certresolver: letsencrypt
 
 volumes:
   - zaid-playground-storage:/rails/storage
