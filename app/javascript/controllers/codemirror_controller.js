@@ -10,7 +10,7 @@ import { zaid } from "../zaid"
 
 // Connects to data-controller="codemirror"
 export default class extends Controller {
-  static targets = ["editor", "input"]
+  static targets = ["editor", "input", "loading"]
   static values = {
     doc: String
   }
@@ -39,7 +39,13 @@ export default class extends Controller {
       parent: this.editorTarget,
     })
 
-    requestAnimationFrame(() => { this.editor.focus() })
+    requestAnimationFrame(() => {
+      this.editor.focus()
+
+      this.loadingTarget.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300 }).onfinish = () => {
+        this.loadingTarget.remove()
+      }
+    })
   }
 
   disconnect() {

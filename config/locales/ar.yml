@@ -5,3 +5,5 @@ ar:
       index:
         run: تشغيل
         output_will_appear_here: النتائج ستظهر هنا!
+        start_writing_your_code_in_arabic: ابدأ بكتابة شيفرتك العربية!
+        preparing: جارٍ التجهيز...
