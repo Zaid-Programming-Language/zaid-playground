@@ -14,21 +14,21 @@ class Views::Pages::Index < Views::Base
         div(class: "absolute top-0 left-0 w-full h-full bg-white z-50", data: { codemirror_target: "loading" }) do
           div(class: "flex flex-col items-center justify-center h-full") do
             img(class: "size-[200px] mb-4", src: "/icon.svg")
-  
+
             RBUI::TypographyLarge() do
               plain t("zaid_playground")
               whitespace
               plain "🤖"
             end
-  
+
             div(class: "flex items-center gap-2") do
               RBUI::TypographyMuted() { t(".preparing") }
-  
+
               div(class: "size-4 rounded-full bg-gray-300 animate-pulse")
             end
           end
         end
-  
+
         div(class: "flex flex-col h-[50vh] w-full sm:h-screen sm:w-1/2 p-4 max-sm:pb-2 sm:pe-2") do
           div(class: "flex items-center gap-1 mb-4") do
             img(class: "size-12", src: "/icon.svg")
