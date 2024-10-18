@@ -196,7 +196,7 @@ class Views::Pages::Index < Views::Base
           plain t(".saved_codes")
 
           RBUI::Card(class: "w-full p-2 mt-2 shadow-sm") do
-            RBUI::CardContent(class: "p-0 max-h-56 overflow-y-auto", data: { open_zaid_target: "list" })
+            RBUI::CardContent(class: "space-y-2 p-0 max-h-56 overflow-y-auto", data: { open_zaid_target: "list" })
           end
         end
 
