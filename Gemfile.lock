@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/AliOsm/rbui.git
-  revision: 20e3394336fbb8e0b1c151f3cda3e03f2580b1da
+  revision: 774b3c8ce6233a7fa9e56d37531a47f4f8b0515a
   specs:
     rbui (1.0.0.pre.alpha.3)
       phlex (>= 1.10)
@@ -108,7 +108,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
-    brakeman (6.2.1)
+    brakeman (6.2.2)
       racc
     builder (3.3.0)
     capybara (3.40.0)
