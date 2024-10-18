@@ -21,6 +21,9 @@ ar:
         classes: الأنواع
         arrays: المصفوفات
         advanced_examples: أمثلة متقدمة
+        odd_and_even: زوجي وفردي
         factorial: المضروب
+        mean: المتوسط الحسابي
+        check_for_leap_year: التحقق من السنة الكبيسة
         is_prime_number: التحقق من العدد الأولي
         prime_numbers: استخراج الأعداد الأولية

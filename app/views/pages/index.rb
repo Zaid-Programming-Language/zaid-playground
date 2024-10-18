@@ -74,6 +74,9 @@ class Views::Pages::Index < Views::Base
             RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "arrays" }) { t(".arrays") }
             RBUI::DropdownMenuLabel() { t(".advanced_examples") }
             RBUI::DropdownMenuSeparator()
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "odd_and_even" }) { t(".odd_and_even") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "mean" }) { t(".mean") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "check_for_leap_year" }) { t(".check_for_leap_year") }
             RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "factorial" }) { t(".factorial") }
             RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "is_prime_number" }) { t(".is_prime_number") }
             RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "prime_numbers" }) { t(".prime_numbers") }
