@@ -7,7 +7,7 @@ import ruby from "./zaid.wasm"
 
 // Connects to data-controller="run-zaid"
 export default class extends Controller {
-  static targets = ["input", "output", "run"]
+  static targets = ["input", "output", "disable"]
 
   async connect() {
     try {
@@ -73,12 +73,12 @@ export default class extends Controller {
   }
 
   #preRun() {
-    this.runTargets.forEach(target => { target.disabled = true })
+    this.disableTargets.forEach(target => { target.disabled = true })
     this.outputTarget.innerHTML = "جارٍ التنفيذ..."
   }
 
   #postRun() {
-    this.runTargets.forEach(target => { target.disabled = false })
+    this.disableTargets.forEach(target => { target.disabled = false })
   }
 
   #formatOutput(output) {
