@@ -61,25 +61,25 @@ class Views::Pages::Index < Views::Base
           RBUI::DropdownMenuContent(class: "max-h-56 overflow-y-auto") do
             RBUI::DropdownMenuLabel() { t(".syntax") }
             RBUI::DropdownMenuSeparator()
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "comments" }) { t(".comments") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "variables" }) { t(".variables") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "printing" }) { t(".printing") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "comparison_operations" }) { t(".comparison_operations") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "logical_operations" }) { t(".logical_operations") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "mathematical_operations" }) { t(".mathematical_operations") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "if_statements" }) { t(".if_statements") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "loop_statements" }) { t(".loop_statements") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "methods" }) { t(".methods") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "classes" }) { t(".classes") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "arrays" }) { t(".arrays") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "comments" }) { t(".comments") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "variables" }) { t(".variables") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "printing" }) { t(".printing") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "comparison_operations" }) { t(".comparison_operations") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "logical_operations" }) { t(".logical_operations") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "mathematical_operations" }) { t(".mathematical_operations") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "if_statements" }) { t(".if_statements") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "loop_statements" }) { t(".loop_statements") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "methods" }) { t(".methods") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "classes" }) { t(".classes") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "arrays" }) { t(".arrays") }
             RBUI::DropdownMenuLabel() { t(".advanced_examples") }
             RBUI::DropdownMenuSeparator()
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "odd_and_even" }) { t(".odd_and_even") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "mean" }) { t(".mean") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "check_for_leap_year" }) { t(".check_for_leap_year") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "factorial" }) { t(".factorial") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "is_prime_number" }) { t(".is_prime_number") }
-            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "prime_numbers" }) { t(".prime_numbers") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "odd_and_even" }) { t(".odd_and_even") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "mean" }) { t(".mean") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "check_for_leap_year" }) { t(".check_for_leap_year") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "factorial" }) { t(".factorial") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "is_prime_number" }) { t(".is_prime_number") }
+            RBUI::DropdownMenuItem(data_action: "codemirror#showExample", data: { example: "prime_numbers" }) { t(".prime_numbers") }
           end
         end
       end
