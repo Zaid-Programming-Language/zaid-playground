@@ -4,6 +4,8 @@ ar:
     pages:
       index:
         run: تشغيل
+        save: حفظ
+        open: فتح
         output_will_appear_here: النتائج ستظهر هنا!
         start_writing_your_code_in_arabic: ابدأ بكتابة شيفرتك العربية!
         preparing: جارٍ التجهيز
@@ -27,3 +29,10 @@ ar:
         check_for_leap_year: التحقق من السنة الكبيسة
         is_prime_number: التحقق من العدد الأولي
         prime_numbers: استخراج الأعداد الأولية
+        close: إغلاق
+        save_your_code: احفظ شيفرتك
+        save_your_code_description: تستطيع حفظ شيفرتك في المتصفح، وستكون متوفرة على هذا الجهاز فقط.
+        code_name: اسم الشيفرة
+        open_your_code: افتح شيفراتك
+        open_your_code_description: تستطيع فتح شيفراتك من هذا المتصفح فقط.
+        saved_codes: الشيفرات المحفوظة

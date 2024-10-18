@@ -95,22 +95,114 @@ class Views::Pages::Index < Views::Base
 
   def results
     div(class: "flex flex-col h-[50vh] w-full sm:h-screen sm:w-1/2 p-4 max-sm:pt-2 sm:ps-2") do
-      div(class: "flex items-center mb-4") do
-        RBUI::Button(size: :xl, class: "hidden sm:flex gap-2 pe-5", data: { action: "click->run-zaid#run", run_zaid_target: "run" }) do
-          plain t(".run")
+      div(class: "hidden sm:flex justify-between gap-4 mb-4") do
+        div(class: "flex") do
+          RBUI::Button(size: :xl, class: "hidden sm:flex gap-2 pe-5", data: { action: "click->run-zaid#run", run_zaid_target: "disable" }) do
+            plain t(".run")
 
-          Hero::Play(variant: :outline, class: "size-5 scale-x-[-1]")
+            Hero::Play(variant: :outline, class: "size-5 scale-x-[-1]")
+          end
         end
 
-        RBUI::Button(class: "flex sm:hidden gap-2 pe-3", data: { action: "click->run-zaid#run", run_zaid_target: "run" }) do
-          plain t(".run")
+        div(class: "flex gap-4") do
+          save_modal do
+            RBUI::Button(variant: :outline, size: :xl, class: "hidden sm:flex gap-2 pe-5", data: { run_zaid_target: "disable" }) do
+              plain t(".save")
 
-          Hero::Play(variant: :outline, class: "size-4 scale-x-[-1]")
+              Bootstrap::Floppy(class: "size-4")
+            end
+          end
+
+          open_modal do
+            RBUI::Button(variant: :outline, size: :xl, class: "hidden sm:flex gap-2 pe-5", data: { run_zaid_target: "disable" }) do
+              plain t(".open")
+
+              Hero::FolderOpen(variant: :outline, class: "size-5")
+            end
+          end
+        end
+      end
+
+      div(class: "flex sm:hidden justify-between gap-4 mb-4") do
+        div(class: "flex") do
+          RBUI::Button(class: "flex sm:hidden gap-2 pe-3", data: { action: "click->run-zaid#run", run_zaid_target: "run" }) do
+            plain t(".run")
+
+            Hero::Play(variant: :outline, class: "size-4 scale-x-[-1]")
+          end
+        end
+
+        div(class: "flex gap-4") do
+          save_modal do
+            RBUI::Button(variant: :outline, class: "gap-2 pe-5", data: { run_zaid_target: "disable" }) do
+              plain t(".save")
+
+              Bootstrap::Floppy(class: "size-4")
+            end
+          end
+
+          open_modal do
+            RBUI::Button(variant: :outline, class: "gap-2 pe-5", data: { run_zaid_target: "disable" }) do
+              plain t(".open")
+
+              Hero::FolderOpen(variant: :outline, class: "size-5")
+            end
+          end
         end
       end
 
       div(class: "h-full p-1 font-cascadia-mono border border-solid rounded bg-[#fcfcfc] overflow-y-scroll", data: { run_zaid_target: "output" }) do
         t(".output_will_appear_here")
+      end
+    end
+  end
+
+  def save_modal(&block)
+    RBUI::Dialog() do
+      RBUI::DialogTrigger(&block)
+
+      RBUI::DialogContent(class: "rtl:[&>button]:left-4 rtl:[&>button]:right-auto", data: { controller: "save-zaid" }) do
+        RBUI::DialogHeader(class: "rtl:text-right") do
+          RBUI::DialogTitle { t(".save_your_code") }
+          RBUI::DialogDescription { t(".save_your_code_description") }
+        end
+
+        RBUI::DialogMiddle() do
+          div(class: "grid w-full items-center gap-1.5") do
+            label(for: "code-name") { t(".code_name") }
+            RBUI::Input(type: "text", id: "code-name", data: { save_zaid_target: "name" })
+          end
+        end
+
+        RBUI::DialogFooter(class: "rtl:space-x-reverse") do
+          RBUI::Button(variant: :outline, data: { action: "click->rbui--dialog#dismiss" }) { t(".close") }
+          RBUI::Button(data: { action: "save-zaid#save" }) { t(".save") }
+        end
+      end
+    end
+  end
+
+  def open_modal(&block)
+    RBUI::Dialog() do
+      RBUI::DialogTrigger(&block)
+
+      RBUI::DialogContent(class: "rtl:[&>button]:left-4 rtl:[&>button]:right-auto", data: { controller: "open-zaid" }) do
+        RBUI::DialogHeader(class: "rtl:text-right") do
+          RBUI::DialogTitle { t(".open_your_code") }
+          RBUI::DialogDescription { t(".open_your_code_description") }
+        end
+
+        RBUI::DialogMiddle() do
+          plain t(".saved_codes")
+
+          RBUI::Card(class: "w-full p-2 mt-2 shadow-sm") do
+            RBUI::CardContent(class: "p-0 max-h-56 overflow-y-auto", data: { open_zaid_target: "list" })
+          end
+        end
+
+        RBUI::DialogFooter(class: "rtl:space-x-reverse") do
+          RBUI::Button(variant: :outline, data: { action: "click->rbui--dialog#dismiss" }) { t(".close") }
+        end
       end
     end
   end

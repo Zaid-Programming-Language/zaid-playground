@@ -10,5 +10,11 @@ application.register("codemirror", CodemirrorController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import OpenZaidController from "./open_zaid_controller"
+application.register("open-zaid", OpenZaidController)
+
 import RunZaidController from "./run_zaid_controller"
 application.register("run-zaid", RunZaidController)
+
+import SaveZaidController from "./save_zaid_controller"
+application.register("save-zaid", SaveZaidController)
