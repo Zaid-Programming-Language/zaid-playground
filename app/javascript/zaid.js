@@ -84,7 +84,8 @@ function tokenString(quote) {
 
     while ((next = stream.next()) != null) {
       if (next == quote && !escaped) {
-        state.tokenize = tokenBase
+        state.tokenize.pop()
+
         break
       }
 
