@@ -7,3 +7,20 @@ ar:
         output_will_appear_here: النتائج ستظهر هنا!
         start_writing_your_code_in_arabic: ابدأ بكتابة شيفرتك العربية!
         preparing: جارٍ التجهيز
+        examples: أمثلة
+        syntax: طريقة الكتابة
+        comments: التعليقات
+        variables: المتغيرات
+        printing: الطباعة
+        comparison_operations: عمليات المقارنة
+        logical_operations: العمليات المنطقية
+        mathematical_operations: العمليات الحسابية
+        if_statements: الجُمَل الشرطية
+        loop_statements: حلقات التكرار
+        methods: الدوال
+        classes: الأنواع
+        arrays: المصفوفات
+        advanced_examples: أمثلة متقدمة
+        factorial: المضروب
+        is_prime_number: التحقق من العدد الأولي
+        prime_numbers: استخراج الأعداد الأولية

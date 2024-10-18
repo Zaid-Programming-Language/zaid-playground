@@ -30,8 +30,8 @@ class Views::Pages::Index < Views::Base
         div(class: "flex items-center") do
           RBUI::TypographyMuted(class: "me-2") { t(".preparing") }
 
-          div(class: "size-3 bg-[#800000] animate-bounce me-1")
-          div(class: "size-3 bg-[#800000] animate-bounce")
+          div(class: "size-3 bg-[#982B1C] animate-bounce me-1")
+          div(class: "size-3 bg-[#982B1C] animate-bounce")
         end
       end
     end
@@ -39,12 +39,45 @@ class Views::Pages::Index < Views::Base
 
   def editor
     div(class: "flex flex-col h-[50vh] w-full sm:h-screen sm:w-1/2 p-4 max-sm:pb-2 sm:pe-2") do
-      div(class: "flex items-center gap-1 mb-4") do
-        img(class: "size-12", src: "/icon.svg")
+      div(class: "flex justify-between items-center mb-4") do
+        div(class: "flex items-center gap-1") do
+          img(class: "size-12", src: "/icon.svg")
 
-        div do
-          RBUI::TypographyLarge() { t("zaid_playground") }
-          RBUI::TypographyMuted() { t(".start_writing_your_code_in_arabic") }
+          div do
+            RBUI::TypographyLarge() { t("zaid_playground") }
+            RBUI::TypographyMuted() { t(".start_writing_your_code_in_arabic") }
+          end
+        end
+
+        RBUI::DropdownMenu(options: { placement: "bottom-end" }, class: "z-40") do
+          RBUI::DropdownMenuTrigger(class: "w-full") do
+            RBUI::Button(size: :xl, variant: :outline, class: "flex gap-2") do
+              Hero::CodeBracket(variant: :solid, class: "size-5")
+
+              plain t(".examples")
+            end
+          end
+
+          RBUI::DropdownMenuContent(class: "max-h-56 overflow-y-auto") do
+            RBUI::DropdownMenuLabel() { t(".syntax") }
+            RBUI::DropdownMenuSeparator()
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "comments" }) { t(".comments") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "variables" }) { t(".variables") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "printing" }) { t(".printing") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "comparison_operations" }) { t(".comparison_operations") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "logical_operations" }) { t(".logical_operations") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "mathematical_operations" }) { t(".mathematical_operations") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "if_statements" }) { t(".if_statements") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "loop_statements" }) { t(".loop_statements") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "methods" }) { t(".methods") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "classes" }) { t(".classes") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "arrays" }) { t(".arrays") }
+            RBUI::DropdownMenuLabel() { t(".advanced_examples") }
+            RBUI::DropdownMenuSeparator()
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "factorial" }) { t(".factorial") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "is_prime_number" }) { t(".is_prime_number") }
+            RBUI::DropdownMenuItem(data_action: "click->codemirror#showExample", data: { example: "prime_numbers" }) { t(".prime_numbers") }
+          end
         end
       end
 
@@ -63,7 +96,7 @@ class Views::Pages::Index < Views::Base
         RBUI::Button(size: :xl, class: "hidden sm:flex gap-2 pe-5", data: { action: "click->run-zaid#run", run_zaid_target: "run" }) do
           plain t(".run")
 
-          Hero::Play(variant: :outline, class: "size-4 scale-x-[-1]")
+          Hero::Play(variant: :outline, class: "size-5 scale-x-[-1]")
         end
 
         RBUI::Button(class: "flex sm:hidden gap-2 pe-3", data: { action: "click->run-zaid#run", run_zaid_target: "run" }) do
