@@ -20,9 +20,9 @@ export default class extends Controller {
   }
 
   async run() {
-    try {
-      this.#preRun()
+    this.#preRun()
 
+    try {
       await new Promise(resolve => setTimeout(resolve, 100));
 
       const code = `
@@ -35,10 +35,11 @@ export default class extends Controller {
       const output = this.vm.$output.flush()
       this.outputTarget.innerHTML = this.#formatOutput(output)
 
-      this.#postRun()
     } catch (error) {
       this.outputTarget.innerHTML = `خطأ: ${error.message}`
     }
+
+    this.#postRun()
   }
 
   #initializeOutput() {
