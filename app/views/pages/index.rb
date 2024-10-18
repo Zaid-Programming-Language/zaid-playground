@@ -24,7 +24,7 @@ class Views::Pages::Index < Views::Base
             div(class: "flex items-center gap-2") do
               RBUI::TypographyMuted() { t(".preparing") }
 
-              div(class: "size-4 rounded-full bg-gray-300 animate-pulse")
+              div(class: "size-4 rounded-full bg-[#800000] animate-pulse")
             end
           end
         end
