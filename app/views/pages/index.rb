@@ -163,8 +163,8 @@ class Views::Pages::Index < Views::Base
 
       RBUI::DialogContent(class: "rtl:[&>button]:left-4 rtl:[&>button]:right-auto", data: { controller: "save-zaid" }) do
         RBUI::DialogHeader(class: "rtl:text-right") do
-          RBUI::DialogTitle { t(".save_your_code") }
-          RBUI::DialogDescription { t(".save_your_code_description") }
+          RBUI::DialogTitle() { t(".save_your_code") }
+          RBUI::DialogDescription() { t(".save_your_code_description") }
         end
 
         RBUI::DialogMiddle() do
@@ -188,15 +188,15 @@ class Views::Pages::Index < Views::Base
 
       RBUI::DialogContent(class: "rtl:[&>button]:left-4 rtl:[&>button]:right-auto", data: { controller: "open-zaid" }) do
         RBUI::DialogHeader(class: "rtl:text-right") do
-          RBUI::DialogTitle { t(".open_your_code") }
-          RBUI::DialogDescription { t(".open_your_code_description") }
+          RBUI::DialogTitle() { t(".open_your_code") }
+          RBUI::DialogDescription() { t(".open_your_code_description") }
         end
 
         RBUI::DialogMiddle() do
           plain t(".saved_codes")
 
           RBUI::Card(class: "w-full p-2 mt-2 shadow-sm") do
-            RBUI::CardContent(class: "p-0 max-h-56 overflow-y-auto", data: { open_zaid_target: "list" })
+            RBUI::CardContent(class: "space-y-2 p-0 max-h-56 overflow-y-auto", data: { open_zaid_target: "list" })
           end
         end
 
