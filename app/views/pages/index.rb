@@ -17,10 +17,11 @@ class Views::Pages::Index < Views::Base
 
             RBUI::TypographyLarge() { t("zaid_playground") }
 
-            div(class: "flex items-center gap-2") do
-              RBUI::TypographyMuted() { t(".preparing") }
+            div(class: "flex items-center") do
+              RBUI::TypographyMuted(class: "me-2") { t(".preparing") }
 
-              div(class: "size-4 rounded-full bg-[#800000] animate-pulse")
+              div(class: "size-3 bg-[#800000] animate-bounce me-1")
+              div(class: "size-3 bg-[#800000] animate-bounce")
             end
           end
         end
