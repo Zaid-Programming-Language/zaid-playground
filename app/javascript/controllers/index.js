@@ -7,9 +7,6 @@ import { application } from "./application"
 import CodemirrorController from "./codemirror_controller"
 application.register("codemirror", CodemirrorController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import OpenZaidController from "./open_zaid_controller"
 application.register("open-zaid", OpenZaidController)
 
