@@ -18,3 +18,6 @@ application.register("run-zaid", RunZaidController)
 
 import SaveZaidController from "./save_zaid_controller"
 application.register("save-zaid", SaveZaidController)
+
+import ZaidExamplesController from "./zaid_examples_controller"
+application.register("zaid-examples", ZaidExamplesController)
